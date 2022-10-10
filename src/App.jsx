@@ -9,12 +9,8 @@ const App = () => {
   const [patient, setPatient] = useState({});
 
   const deletePatient = patientSelected => {
-    let tmpPatients = [];
-    patients.forEach((item) => {
-      if (item.id !== patientSelected.id) tmpPatients.push(item);
-    });
-
-    setPatients(tmpPatients);
+    const patientsUpdated = patients.filter(item => item.id !== patientSelected.id);
+    setPatients(patientsUpdated);
   };
 
   return (

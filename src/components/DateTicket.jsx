@@ -2,6 +2,11 @@ const Date = ({patient, setPatient, deletePatient}) => {
 
 	const {name, owner, email, date, symptoms} = patient;
 
+	const handleDeleteTicket = () => {
+		const response = confirm("Deseas eliminar este ticket?");
+		if (response) deletePatient(patient);
+	};
+
 	return (
 		<div className="mx-5 mb-10 bg-white shadow-md px-5 py-10 rounded-xl">
 			<div className="grid grid-cols-12">
@@ -25,7 +30,7 @@ const Date = ({patient, setPatient, deletePatient}) => {
 
 					{/* Delete */}
 					<button
-						onClick={() => deletePatient(patient)}
+						onClick={handleDeleteTicket}
 						type="button"
 						className="w-full py-2 px-10 bg-transparent text-red-600 hover:text-red-700 font-bold uppercase"
 					>
